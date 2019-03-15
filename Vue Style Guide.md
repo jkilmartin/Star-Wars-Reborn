@@ -2,6 +2,7 @@
 ------
 
 Thanks for checking out our Star Wars project! :star:
+
 The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue/email first (including to this document). 
 May the force be with you.
 
