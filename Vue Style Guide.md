@@ -1,7 +1,9 @@
-# Vue Style Guide
+# Contributing to Star-Wars (pew pew)
+------
+
+Thanks for checking out our Star Wars project! The following is a set of guidelines for contributing. Please follow them as best you can, if in doubt ask away, and feel free to propose any changes in a pull request.
 
 ##### Component names should be multi-word
-------
 
 Component names, except for root App components, should consist of several words to prevent conflict with HTML elements (which are single words).
 
