@@ -6,6 +6,7 @@
 Component names, except for root App components, should consist of several words to prevent conflict with HTML elements (which are single words).
 
 ###### Bad
+```
 Vue.component('todo', {
   // …
 })
@@ -14,7 +15,9 @@ export default {
   name: 'Todo',
   // …
 }
+```
 ###### Good
+```
 Vue.component('todo-item', {
   // …
 })
@@ -23,10 +26,12 @@ export default {
   name: 'TodoItem',
   // …
 }
+```
 Component data
 Component data must be a function that returns an object (except on a new Vue instance).
  
 ###### Bad
+```
 Vue.component('some-comp', {
   data: {
     foo: 'bar'
@@ -37,7 +42,9 @@ export default {
     foo: 'bar'
   }
 }
+```
 ###### Good
+```
 Vue.component('some-comp', {
   data: function () {
     return {
@@ -61,6 +68,7 @@ new Vue({
     foo: 'bar'
   }
 })
+```
 Prop definitions
 Prop definitions should be as detailed as possible rather than shorthand, at least specifying type(s).
  
