@@ -517,6 +517,3 @@ Good
   background-color: red;
 }
 </style>
-
-
-JS Guidelines
