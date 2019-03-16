@@ -675,5 +675,6 @@ button {
 </style>
 ```
 
+----------------------- JavaScript best pracs ---------------------
 
 ### May the force be with you.
