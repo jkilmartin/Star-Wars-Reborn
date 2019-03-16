@@ -1,33 +1,53 @@
-# Vue Style Guide
+# Contributing to Star-Wars (pew pew)
+------
+
+Thanks for checking out our Star Wars project! :star:
+
+The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue/email first (including to this document). 
+
+### Issue and Pull Request Conventions
+------
+------------------------content------------------------
+
+
+### Styleguide Conventions
+------
+
+#### Git Commit Messages
+------------------------content------------------------
+#### CSS Styling
+------------------------content------------------------
+
+#### JavaScript/Vue.js
 
 ##### Component names should be multi-word
-------
 
 Component names, except for root App components, should consist of several words to prevent conflict with HTML elements (which are single words).
 
 ###### Bad
 ```
 Vue.component('todo', {
-  // …
+  // ...
 })
 
 export default {
   name: 'Todo',
-  // …
+  // ...
 }
 ```
 ###### Good
 ```
 Vue.component('todo-item', {
-  // …
+  // ...
 })
 
 export default {
   name: 'TodoItem',
-  // …
+  // ...
 }
 ```
-Component data
+
+##### Component data
 Component data must be a function that returns an object (except on a new Vue instance).
  
 ###### Bad
@@ -37,6 +57,7 @@ Vue.component('some-comp', {
     foo: 'bar'
   }
 })
+
 export default {
   data: {
     foo: 'bar'
@@ -52,6 +73,7 @@ Vue.component('some-comp', {
     }
   }
 })
+
 // In a .vue file
 export default {
   data () {
@@ -60,19 +82,19 @@ export default {
     }
   }
 }
-// It's OK to use an object directly in a root
-// Vue instance, since only a single instance
-// will ever exist.
+
+// It's fine to use an object directly in a root
+// Vue instance, because only one instance
+// will ever exist
 new Vue({
   data: {
     foo: 'bar'
   }
 })
 ```
-Prop definitions
+
+##### Prop definitions
 Prop definitions should be as detailed as possible rather than shorthand, at least specifying type(s).
- 
-Example
  
 ###### Bad
 ```
@@ -84,6 +106,7 @@ props: ['status']
 props: {
   status: String
 }
+
 // Best!
 props: {
   status: {
@@ -100,10 +123,9 @@ props: {
   }
 }
 ```
-Keyed v-for
-Always use key with v-for to maintain internal component state down the subtree.
- 
-Example
+
+##### Keyed *v-for*
+Always use *key* with *v-for* to maintain internal component state down the subtree.
  
 ###### Bad
 ```
@@ -112,7 +134,9 @@ Example
     {{ item.text }}
   </li>
 </ul>
-Good
+```
+###### Good
+```
 <ul>
   <li
     v-for="item in items"
@@ -122,15 +146,14 @@ Good
   </li>
 </ul>
 ```
-Avoid v-if with v-for
-Never use v-if and v-for on the same element.
+
+##### Avoid *v-if* with *v-for*
+Never use *v-if* and *v-for* on the same element.
 There are two common cases where this can be tempting:
-To filter items in a list (e.g., v-for="user in users" v-if="user.isActive"). In these cases, replace users with a new computed property that returns your filtered list (e.g., activeUsers).
-To avoid rendering a list if it should be hidden (e.g., v-for="user in users" v-if="shouldShowUsers"). In these cases, move the v-if to a container element (e.g., ul, ol).
+- To filter items in a list (e.g., *v-for="user in users" v-if="user.isActive"*). In these cases, replace *users* with a new computed property that returns your filtered list (e.g., *activeUsers*).
+- To avoid rendering a list if it should be hidden (e.g., *v-for="user in users" v-if="shouldShowUsers"*). In these cases, move the *v-if* to a container element (e.g., *ul* or *ol*).
  
-Example
- 
-Bad
+###### Bad
 ```
 <ul>
   <li
@@ -152,7 +175,7 @@ Bad
   <li>
 </ul>
 ```
-Good
+###### Good
 ```
 <ul>
   <li
@@ -172,13 +195,12 @@ Good
   <li>
 </ul>
 ```
-Component style scoping
-Styles can be global in a top-level App component and in layout components, but for all other components, they must have scoped.
-This makes overriding internal styles easier, with human-readable class names that don’t have too high specificity, but are still very unlikely to result in a conflict.
+
+##### Component style scoping
+Styles can be global in a top-level *App* component and in layout components, but for all other components, they must be scoped.
+This makes overriding internal styles easier using human-readable class names with lower specificity and that are unlikely to result in a conflict.
  
-Example
- 
-Bad
+###### Bad
 ```
 <template>
   <button class="btn btn-close">X</button>
@@ -190,7 +212,7 @@ Bad
 }
 </style>
 ```
-Good
+###### Good
 ```
 <template>
   <button class="button button-close">X</button>
@@ -208,10 +230,11 @@ Good
 }
 </style>
 ```
-Geoffs section
-Private property names
-Always use the $_ prefix for custom private properties in a plugin, mixin, etc. Then to avoid conflicts with code by other authors, also include a named scope (e.g., $_yourPluginName_). 
-Bad
+
+##### Private property names
+Always use the *\$_* prefix for custom private properties in a plugin, mixin, etc. Then to avoid conflicts with code by other authors, also include a named scope (e.g., *\$\_yourPluginName\_*). 
+
+###### Bad
 ```
 var myGreatMixin = {
   // ...
@@ -222,7 +245,7 @@ var myGreatMixin = {
   }
 }
 ```
-Good
+###### Good
 ```
 var myGreatMixin = {
   // ...
@@ -233,119 +256,131 @@ var myGreatMixin = {
   }
 }
 ```
-Component files
+
+##### Component files
 Each component should be in its own file.
-This helps to more quickly find a component when you need to edit it or review how to use it.
-Bad
+This helps when searching for a component to edit or review how to use it.
+###### Bad
 ```
 Vue.component('TodoList', {
   // ...
 })
 ```
-Good
+###### Good
 ```
 components/
 |- TodoList.js
-Single-file component filename casing
-Filenames of single-file components should either be always PascalCase or always kebab-case.
 ```
-Bad
+
+##### Single-file component filename casing
+Filenames of single-file components should either be always PascalCase or always kebab-case.
+
+###### Bad
 ```
 components/
 |- mycomponent.vue
 
-
 components/
 |- myComponent.vue
-Good
+```
+
+###### Good
+```
 components/
 |- MyComponent.vue
 
-
 components/
 |- my-component.vue
-Tightly coupled component names
+```
+
+##### Tightly coupled component names
 Child components that are tightly coupled with their parent should include the parent component name as a prefix.
 If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
- 
-Example
-```
-Bad
+
+###### Bad
 ```
 components/
 |- SearchSidebar.vue
 |- NavigationForSearchSidebar.vue
 ```
-Good
+###### Good
 ```
 components/
 |- SearchSidebar.vue
 |- SearchSidebarNavigation.vue
-Order of words in component names
+```
+
+##### Order of words in component names
 Component names should start with the highest-level (often most general) words and end with descriptive modifying words.
  
-Example
-```
-Bad
+###### Bad
 ```
 components/
 |- ClearSearchButton.vue
 |- SearchInput.vue
 ```
-Good
+###### Good
 ```
 components/
 |- SearchButtonClear.vue
 |- SearchInputQuery.vue
-Self-closing components
-Components with no content should be self-closing in single-file components, string templates, and JSX, but never in DOM templates.
-Components that self-close communicate that they not only have no content, but are meant to have no content. It’s the difference between a blank page in a book and one labeled “This page intentionally left blank.” Your code is also cleaner without the unnecessary closing tag.
 ```
-Bad
+
+##### Self-closing components
+Components with no content should be self-closing in single-file components, string templates, and JSX, but never in DOM templates.
+Components that self-close communicate that they not only have no content, but are meant to have no content. It is akin to the difference between a blank page in a book and one labeled “This page intentionally left blank.” The code is also cleaner without the unnecessary closing tag.
+
+###### Bad
 ```
 <!-- In single-file components, string templates, and JSX -->
 <MyComponent></MyComponent>
+
 <!-- In DOM templates -->
 <my-component/>
 ```
-Good
+###### Good
 ```
 <!-- In single-file components, string templates, and JSX -->
 <MyComponent/>
+
 <!-- In DOM templates -->
 <my-component></my-component>
-
-Component name casing in templates
-Component names should always be PascalCase in single-file components and string templates but kebab-case in DOM templates.
 ```
-Bad
+
+##### Component name casing in templates
+Component names should always be PascalCase in single-file components and string templates but kebab-case in DOM templates.
+
+###### Bad
 ```
 <!-- In single-file components and string templates -->
 <mycomponent/>
+
 <!-- In single-file components and string templates -->
 <myComponent/>
+
 <!-- In DOM templates -->
 <MyComponent></MyComponent>
 ```
-Good
+###### Good
 ```
 <!-- In single-file components and string templates -->
 <MyComponent/>
+
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
-=========================Jeremy section
-Component name casing in JS/JSX
-Component names in JS/JSX should always be PascalCase, though they may be kebab-case inside strings for simpler applications that only use global component registration through Vue.component.
+
+##### Component name casing in JS/JSX
+Component names in JS/JSX should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
  
-Example
- 
-Bad
+###### Bad
 ```
 Vue.component('myComponent', {
   // ...
 })
+
 import myComponent from './MyComponent.vue'
+
 export default {
   name: 'myComponent',
   // ...
@@ -356,7 +391,7 @@ export default {
   // ...
 }
 ```
-Good
+###### Good
 ```
 Vue.component('MyComponent', {
   // ...
@@ -366,58 +401,65 @@ Vue.component('MyComponent', {
 Vue.component('my-component', {
   // ...
 })
+
 import MyComponent from './MyComponent.vue'
+
 export default {
   name: 'MyComponent',
   // ...
 }
-Full-word component names
-Component names should prefer full words over abbreviations.
-The autocompletion in editors make the cost of writing longer names very low, while the clarity they provide is invaluable. Uncommon abbreviations, in particular, should always be avoided.
 ```
-Bad
+
+##### Full-word component names
+Component names should prefer full words over abbreviations. Uncommon abbreviations should always be avoided.
+
+###### Bad
 ```
 components/
 |- SdSettings.vue
 |- UProfOpts.vue
 ```
-Good
+###### Good
 ```
 components/
 |- StudentDashboardSettings.vue
 |- UserProfileOptions.vue
-Prop name casing
-Prop names should always use camelCase during declaration, but kebab-case in templates and JSX.
-We’re simply following the conventions of each language. Within JavaScript, camelCase is more natural. Within HTML, kebab-case is.
 ```
-Bad
+
+##### Prop name casing
+Prop names should always use camelCase during declaration but kebab-case in templates and JSX.
+This follows the conventions of each language. Within JavaScript, camelCase is more natural; withing HTML, kebab-case is used.
+
+###### Bad
 ```
 props: {
   'greeting-text': String
 }
+
 <WelcomeMessage greetingText="hi"/>
 ```
-Good
+###### Good
 ```
 props: {
   greetingText: String
 }
+
 <WelcomeMessage greeting-text="hi"/>
 ```
-Multi-attribute elements
 
-Elements with multiple attributes should span multiple lines, with one attribute per line.
-In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it’s much easier to read. Our templates and JSX deserve the same consideration.
-Bad
+##### Multi-attribute elements
+
+Elements with multiple attributes should span multiple lines with one attribute per line.
+
+###### Bad
 ```
-
 <img src="https://vuejs.org/images/logo.png" alt="Vue Logo">
+
 <MyComponent foo="a" bar="b" baz="c"/>
 ```
 
-Good
+###### Good
 ```
-
 <img
   src="https://vuejs.org/images/logo.png"
   alt="Vue Logo"
@@ -430,21 +472,24 @@ Good
 />
 ```
 
-Simple expressions in templates
+##### Simple expressions in templates
 
-Component templates should only include simple expressions, with more complex expressions refactored into computed properties or methods.
-Complex expressions in your templates make them less declarative. We should strive to describe what should appear, not how we’re computing that value. Computed properties and methods also allow the code to be reused.
-Bad
+Component templates should only include simple expressions; more complex expressions should be refactored into computed properties or methods. This is to make expressions declarative and allow for reuse of code.
+
+###### Bad
+```
 {{
   fullName.split(' ').map(function (word) {
     return word[0].toUpperCase() + word.slice(1)
   }).join(' ')
 }}
-
-Good
 ```
-<!-- In a template →
+
+###### Good
+```
+<!-- In a template -->
 {{ normalizedFullName }}
+
 // The complex expression has been moved to a computed property
 computed: {
   normalizedFullName: function () {
@@ -454,13 +499,12 @@ computed: {
   }
 }
 ```
-Simple computed properties
+
+##### Simple computed properties
 
 Complex computed properties should be split into as many simpler properties as possible.
  
-Example
- 
-Bad
+###### Bad
 ```
 computed: {
   price: function () {
@@ -472,42 +516,46 @@ computed: {
   }
 }
 ```
-Good
+###### Good
 ```
 computed: {
   basePrice: function () {
     return this.manufactureCost / (1 - this.profitMargin)
   },
+
   discount: function () {
     return this.basePrice * (this.discountPercent || 0)
   },
+
   finalPrice: function () {
     return this.basePrice - this.discount
   }
 }
 ```
 
-========= jacks section =========
-Quoted attribute values
+##### Quoted attribute values
 Attribute values should always be inside quotes (single or double).
-Bad
+
+###### Bad
 ```
 <input type=text>
 ```
-Good
+###### Good
 ```
 <input type="text">
 ```
-Directive shorthands
-Shorthands should be used ( : for v-bind: and @ for v-on:).
-Bad
+
+##### Directive shorthands
+Shorthands should be used ( : for *v-bind:* and @ for *v-on:*).
+
+###### Bad
 ```
 <input
   v-on:input="onInput"
   @focus="onFocus"
 >
 ```
-Good
+###### Good
 ```
 <input
   :value="newTodoText"
@@ -519,9 +567,11 @@ Good
   @focus="onFocus"
 >
 ```
-Empty lines in component/instance options
+
+##### Empty lines in component/instance options
 Add one empty line between multi-line properties.
-Good
+
+###### Good
 ```
 props: {
   value: {
@@ -548,25 +598,40 @@ computed: {
   }
 }
 ```
-Single-file component top-level element order
-We will have our own convention 
+
+##### Single-file component top-level element order
+The following hierarchy is used in .vue files:
+
 ```
 <template>
+  // ...
+</template>
+
 <script>
+  import ...
+  export ...
+  // ...
+</script>
+
 <style>
-v-if/v-else-if/v-else without key
+  // ...
+</style>
 ```
-Use key with v-if + v-else if they are the same element type (e.g., both <div> elements).
-Bad
+
+##### Using *v-if/v-else-if/v-else* without *key*
+Use *key* with *v-if* + *v-else* if they are the same element type (e.g., both \<div> elements).
+
+###### Bad
 ```
 <div v-if="error">
   Error: {{ error }}
 </div>
+
 <div v-else>
   {{ results }}
 </div>
 ```
-Good
+###### Good
 ```
 <div
   v-if="error"
@@ -574,6 +639,7 @@ Good
 >
   Error: {{ error }}
 </div>
+
 <div
   v-else
   key="search-results"
@@ -581,10 +647,11 @@ Good
   {{ results }}
 </div>
 ```
-Element selectors with scoped
-Element selectors should be avoided with scoped. Prefer class selectors over element selectors in scoped styles.
-Bad
+##### Element selectors with *scoped*
+Prefer class selectors over element selectors when styling with *scoped*.
 
+###### Bad
+```
 <template>
   <button>X</button>
 </template>
@@ -594,8 +661,9 @@ button {
   background-color: red;
 }
 </style>
-
-Good
+```
+###### Good
+```
 <template>
   <button class="btn btn-close">X</button>
 </template>
@@ -605,3 +673,7 @@ Good
   background-color: red;
 }
 </style>
+```
+
+
+### May the force be with you.
