@@ -1,5 +1,5 @@
 # Contributing to Star-Wars (pew pew)
-------
+-----
 
 Thanks for checking out our Star Wars project! :star:
 
@@ -327,12 +327,12 @@ components/
 ```
 
 ##### Self-closing components
-Components with no content should be self-closing in single-file components, string templates, and JSX, but never in DOM templates.
+Components with no content should be self-closing in single-file components and string templates, but never in DOM templates.
 Components that self-close communicate that they not only have no content, but are meant to have no content. It is akin to the difference between a blank page in a book and one labeled “This page intentionally left blank.” The code is also cleaner without the unnecessary closing tag.
 
 ###### Bad
 ```
-<!-- In single-file components, string templates, and JSX -->
+<!-- In single-file components and string templates -->
 <MyComponent></MyComponent>
 
 <!-- In DOM templates -->
@@ -340,7 +340,7 @@ Components that self-close communicate that they not only have no content, but a
 ```
 ###### Good
 ```
-<!-- In single-file components, string templates, and JSX -->
+<!-- In single-file components and string templates -->
 <MyComponent/>
 
 <!-- In DOM templates -->
@@ -370,8 +370,8 @@ Component names should always be PascalCase in single-file components and string
 <my-component></my-component>
 ```
 
-##### Component name casing in JS/JSX
-Component names in JS/JSX should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
+##### Component name casing in JavaScript
+Component names in JavaScript should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
  
 ###### Bad
 ```
@@ -427,7 +427,7 @@ components/
 ```
 
 ##### Prop name casing
-Prop names should always use camelCase during declaration but kebab-case in templates and JSX.
+Prop names should always use camelCase during declaration but kebab-case in templates.
 This follows the conventions of each language. Within JavaScript, camelCase is more natural; withing HTML, kebab-case is used.
 
 ###### Bad
@@ -534,7 +534,7 @@ computed: {
 ```
 
 ##### Quoted attribute values
-Attribute values should always be inside quotes (single or double).
+Attribute values should always be inside double quotes.
 
 ###### Bad
 ```
@@ -675,6 +675,9 @@ button {
 </style>
 ```
 
------------------------ JavaScript best pracs ---------------------
+#### JavaScript Styleguide
+-----
+##### Semicolons
+Always use semicolons to close statements.
 
 ### May the force be with you.
