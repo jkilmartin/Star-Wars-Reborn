@@ -675,8 +675,6 @@ button {
 </style>
 ```
 
-#### JavaScript Styleguide
------
 ##### Semicolons
 Always use semicolons to close statements.
 
