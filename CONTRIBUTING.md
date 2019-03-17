@@ -3,22 +3,39 @@
 
 Thanks for checking out our Star Wars project! :star:
 
-The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue/email first (including to this document). 
+This is a single-page application that uses the [Vue.js](https://vuejs.org/v2/guide/) framework.
 
-### Issue and Pull Request Conventions
-------
-------------------------content------------------------
+The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue first (including to this document).
+
+### Issues, Branching, and Pull Request Conventions
+
+#### Issues
+Before forking and contributing, please open an issue with a relevant title and description of intentions.
+
+#### Branching
+Development is done using the dev branch. Please create your own topic branch after forking and open pull requests to dev. Your topic branch should follow this syntax: *issue-number/short-description*.
+
+#### Pull Requests
+1. Ensure your topic branch is up to date with our latest dev version, and ensure all changes are committed to your topic branch.
+2. Ensure you are merging to the dev branch in our base repository.
+3. If there are any pending pull requests in dev, check the *Files Changed* section to address conflicts.
+4. If there are no conflicts, go ahead and open your Pull Request.
+5. Enter a title and description. The description should include the keyword 'resolve' and the issue number.
+6. Submit and we'll get to work!
 
 
 ### Styleguide Conventions
 ------
 
-#### Git Commit Messages
-------------------------content------------------------
-#### CSS Styling
-------------------------content------------------------
+#### Git Commits & Messages
+As much as possible ensure only one logical change per commit is made.
 
-#### JavaScript/Vue.js
+Commit messages should describe the original issue, why a change was made, and how the change addresses the issue.
+
+#### JavaScript/Vue.js/CSS
+
+##### Semicolons
+Always use semicolons to close statements.
 
 ##### Component names should be multi-word
 
@@ -674,8 +691,5 @@ button {
 }
 </style>
 ```
-
-##### Semicolons
-Always use semicolons to close statements.
 
 ### May the force be with you.
