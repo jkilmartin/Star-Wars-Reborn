@@ -5,7 +5,7 @@ Thanks for checking out our Star Wars project! :star:
 
 This is a single-page application that uses the [Vue.js](https://vuejs.org/v2/guide/) framework.
 
-The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue first (including to this document).
+The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) first (including to this document).
 
 ### Issues, Branching, and Pull Request Conventions
 
