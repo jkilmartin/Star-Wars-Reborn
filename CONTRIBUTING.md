@@ -5,12 +5,12 @@ Thanks for checking out our Star Wars project! :star:
 
 This is a single-page application that uses the [Vue.js](https://vuejs.org/v2/guide/) framework.
 
-The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) first (including to this document).
+The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue first (including to this document).
 
 ### Issues, Branching, and Pull Request Conventions
 
 #### Issues
-Before forking and contributing, please open an issue with a relevant title and description of intentions.
+Before forking and contributing, please open an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) with a relevant title and description of intentions.
 
 #### Branching
 Development is done using the dev branch. Please create your own topic branch after forking and open pull requests to dev. Your topic branch should follow this syntax: *issue-number/short-description*.
@@ -19,7 +19,7 @@ Development is done using the dev branch. Please create your own topic branch af
 1. Ensure your topic branch is up to date with the latest dev version in this repository, and ensure all changes are committed to your topic branch.
 2. Ensure you are merging to the dev branch in this repository.
 3. If there are any pending pull requests in dev, check the *Files Changed* section to address conflicts.
-4. If there are no conflicts, go ahead and open your Pull Request.
+4. If there are no conflicts, go ahead and open your [Pull Request](https://github.com/jkilmartin/StarwarsVueStyleGuide/pulls).
 5. Enter a title and description. The description should include the keyword 'resolve' and the issue number.
 6. Submit and we'll get to work!
 
