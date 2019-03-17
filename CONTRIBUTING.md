@@ -1,5 +1,4 @@
 # Contributing Guide
----
 
 Thanks for checking out our Star Wars project! :star:
 

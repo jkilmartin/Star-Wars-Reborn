@@ -1,5 +1,5 @@
 # Cool Star Wars Title (pew pew)
-------
+
 Hello! Welcome to our single-page web application promoting a super cool new Star Wars movie. 
 
 This project constitutes part of our course at [YooBee School of Design](https://www.yoobee.ac.nz/); as such it is purely for educational purposes, but if you are into it then by all means [get involved](https://github.com/jkilmartin/StarwarsVueStyleGuide/blob/dev/CONTRIBUTING.md).
