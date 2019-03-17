@@ -17,7 +17,7 @@ Development is done using the dev branch. Please create your own topic branch af
 
 #### Pull Requests
 1. Ensure your topic branch is up to date with our latest dev version, and ensure all changes are committed to your topic branch.
-2. Ensure you are merging to the dev branch in our base repository.
+2. Ensure you are merging to the dev branch in this repository.
 3. If there are any pending pull requests in dev, check the *Files Changed* section to address conflicts.
 4. If there are no conflicts, go ahead and open your Pull Request.
 5. Enter a title and description. The description should include the keyword 'resolve' and the issue number.
