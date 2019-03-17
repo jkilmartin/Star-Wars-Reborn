@@ -4,8 +4,7 @@ Thanks for checking out our Star Wars project! :star:
 
 The following is a set of guidelines for contributing and use. Please follow them as best you can, asking about any changes you wish to make in an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) first (including to this document).
 
-### Issues, Branching, Development, and Pull Requests
----
+## Issues, Branching, Development, and Pull Requests
 
 #### Issues
 Before forking and contributing, please open an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) with a relevant title and description of intentions.
@@ -33,8 +32,7 @@ Your topic branch should follow this syntax: *`issue-number/short-description`*.
 As much as possible ensure only one logical change per commit is made.
 Commit messages should describe the original issue, why a change was made, and how the change addresses the issue.
 
-### JavaScript/Vue.js/CSS Styleguide
----
+## JavaScript/Vue.js/CSS Styleguide
 
 ##### Semicolons
 Always use semicolons to close statements.
