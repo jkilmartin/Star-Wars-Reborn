@@ -16,7 +16,7 @@ Before forking and contributing, please open an issue with a relevant title and 
 Development is done using the dev branch. Please create your own topic branch after forking and open pull requests to dev. Your topic branch should follow this syntax: *issue-number/short-description*.
 
 #### Pull Requests
-1. Ensure your topic branch is up to date with our latest dev version, and ensure all changes are committed to your topic branch.
+1. Ensure your topic branch is up to date with the latest dev version in this repository, and ensure all changes are committed to your topic branch.
 2. Ensure you are merging to the dev branch in this repository.
 3. If there are any pending pull requests in dev, check the *Files Changed* section to address conflicts.
 4. If there are no conflicts, go ahead and open your Pull Request.
