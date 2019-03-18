@@ -1,27 +1,43 @@
-# Contributing to Star-Wars (pew pew)
-------
+# Contributing Guide
 
 Thanks for checking out our Star Wars project! :star:
 
-The following is a set of guidelines for contributing. Please follow them as best you can, asking about any changes you wish to make in an issue/email first (including to this document). 
+The following is a set of guidelines for contributing and use. Please follow them as best you can, asking about any changes you wish to make in an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) first (including to this document).
 
-### Issue and Pull Request Conventions
-------
-------------------------content------------------------
+## Issues, Branching, Development, and Pull Requests
 
+### Issues
+Before forking and contributing, please open an [issue](https://github.com/jkilmartin/StarwarsVueStyleGuide/issues) with a relevant title and description of intentions.
 
-### Styleguide Conventions
-------
+### Branching and Development
+- Development is done using the `dev` branch. The `master` branch is the latest stable version. 
+**Please do not open pull requests against the `master` branch.**
 
-#### Git Commit Messages
-------------------------content------------------------
-#### CSS Styling
-------------------------content------------------------
+- Create your own topic branch after forking and open pull requests to `dev`. 
+Your topic branch should follow this syntax: *`issue-number/short-description`*.
 
-#### JavaScript/Vue.js
+- After cloning, run `npm install` to install dependencies.
 
-##### Component names should be multi-word
+- Please work in the `src` folder and avoid `dist`.
 
+### Pull Requests
+1. Ensure your topic branch is up to date with the latest version in this repository, and ensure all changes are committed.
+2. Ensure you are merging to the `dev` branch in this repository.
+3. If there are any pending pull requests in `dev`, check the *Files Changed* section to address conflicts.
+4. If there are no conflicts, go ahead and open your [Pull Request](https://github.com/jkilmartin/StarwarsVueStyleGuide/pulls).
+5. Enter a title and description. The description should include the keyword `resolve` and the `issue number`.
+6. Submit and we'll get to work!
+
+### Git Commits
+As much as possible ensure only one logical change per commit is made.
+Commit messages should describe the original issue, why a change was made, and how the change addresses the issue.
+
+## JavaScript/Vue.js/CSS Styleguide
+
+#### Semicolons
+Always use semicolons to close statements.
+
+#### Component names should be multi-word
 Component names, except for root App components, should consist of several words to prevent conflict with HTML elements (which are single words).
 
 ###### Bad
@@ -47,7 +63,7 @@ export default {
 }
 ```
 
-##### Component data
+#### Component data
 Component data must be a function that returns an object (except on a new Vue instance).
  
 ###### Bad
@@ -93,7 +109,7 @@ new Vue({
 })
 ```
 
-##### Prop definitions
+#### Prop definitions
 Prop definitions should be as detailed as possible rather than shorthand, at least specifying type(s).
  
 ###### Bad
@@ -124,7 +140,7 @@ props: {
 }
 ```
 
-##### Keyed *v-for*
+#### Keyed *v-for*
 Always use *key* with *v-for* to maintain internal component state down the subtree.
  
 ###### Bad
@@ -147,7 +163,7 @@ Always use *key* with *v-for* to maintain internal component state down the subt
 </ul>
 ```
 
-##### Avoid *v-if* with *v-for*
+#### Avoid *v-if* with *v-for*
 Never use *v-if* and *v-for* on the same element.
 There are two common cases where this can be tempting:
 - To filter items in a list (e.g., *v-for="user in users" v-if="user.isActive"*). In these cases, replace *users* with a new computed property that returns your filtered list (e.g., *activeUsers*).
@@ -196,7 +212,7 @@ There are two common cases where this can be tempting:
 </ul>
 ```
 
-##### Component style scoping
+#### Component style scoping
 Styles can be global in a top-level *App* component and in layout components, but for all other components, they must be scoped.
 This makes overriding internal styles easier using human-readable class names with lower specificity and that are unlikely to result in a conflict.
  
@@ -231,7 +247,7 @@ This makes overriding internal styles easier using human-readable class names wi
 </style>
 ```
 
-##### Private property names
+#### Private property names
 Always use the *\$_* prefix for custom private properties in a plugin, mixin, etc. Then to avoid conflicts with code by other authors, also include a named scope (e.g., *\$\_yourPluginName\_*). 
 
 ###### Bad
@@ -257,7 +273,7 @@ var myGreatMixin = {
 }
 ```
 
-##### Component files
+#### Component files
 Each component should be in its own file.
 This helps when searching for a component to edit or review how to use it.
 ###### Bad
@@ -272,9 +288,8 @@ components/
 |- TodoList.js
 ```
 
-##### Single-file component filename casing
+#### Single-file component filename casing
 Filenames of single-file components should either be always PascalCase or always kebab-case.
-
 ###### Bad
 ```
 components/
@@ -283,7 +298,6 @@ components/
 components/
 |- myComponent.vue
 ```
-
 ###### Good
 ```
 components/
@@ -293,7 +307,7 @@ components/
 |- my-component.vue
 ```
 
-##### Tightly coupled component names
+#### Tightly coupled component names
 Child components that are tightly coupled with their parent should include the parent component name as a prefix.
 If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
 
@@ -310,7 +324,7 @@ components/
 |- SearchSidebarNavigation.vue
 ```
 
-##### Order of words in component names
+#### Order of words in component names
 Component names should start with the highest-level (often most general) words and end with descriptive modifying words.
  
 ###### Bad
@@ -326,13 +340,13 @@ components/
 |- SearchInputQuery.vue
 ```
 
-##### Self-closing components
-Components with no content should be self-closing in single-file components, string templates, and JSX, but never in DOM templates.
+#### Self-closing components
+Components with no content should be self-closing in single-file components and string templates, but never in DOM templates.
 Components that self-close communicate that they not only have no content, but are meant to have no content. It is akin to the difference between a blank page in a book and one labeled “This page intentionally left blank.” The code is also cleaner without the unnecessary closing tag.
 
 ###### Bad
 ```
-<!-- In single-file components, string templates, and JSX -->
+<!-- In single-file components and string templates -->
 <MyComponent></MyComponent>
 
 <!-- In DOM templates -->
@@ -340,14 +354,14 @@ Components that self-close communicate that they not only have no content, but a
 ```
 ###### Good
 ```
-<!-- In single-file components, string templates, and JSX -->
+<!-- In single-file components and string templates -->
 <MyComponent/>
 
 <!-- In DOM templates -->
 <my-component></my-component>
 ```
 
-##### Component name casing in templates
+#### Component name casing in templates
 Component names should always be PascalCase in single-file components and string templates but kebab-case in DOM templates.
 
 ###### Bad
@@ -370,8 +384,8 @@ Component names should always be PascalCase in single-file components and string
 <my-component></my-component>
 ```
 
-##### Component name casing in JS/JSX
-Component names in JS/JSX should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
+#### Component name casing in JavaScript
+Component names in JavaScript should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
  
 ###### Bad
 ```
@@ -410,7 +424,7 @@ export default {
 }
 ```
 
-##### Full-word component names
+#### Full-word component names
 Component names should prefer full words over abbreviations. Uncommon abbreviations should always be avoided.
 
 ###### Bad
@@ -426,8 +440,8 @@ components/
 |- UserProfileOptions.vue
 ```
 
-##### Prop name casing
-Prop names should always use camelCase during declaration but kebab-case in templates and JSX.
+#### Prop name casing
+Prop names should always use camelCase during declaration but kebab-case in templates.
 This follows the conventions of each language. Within JavaScript, camelCase is more natural; withing HTML, kebab-case is used.
 
 ###### Bad
@@ -447,8 +461,7 @@ props: {
 <WelcomeMessage greeting-text="hi"/>
 ```
 
-##### Multi-attribute elements
-
+#### Multi-attribute elements
 Elements with multiple attributes should span multiple lines with one attribute per line.
 
 ###### Bad
@@ -457,7 +470,6 @@ Elements with multiple attributes should span multiple lines with one attribute 
 
 <MyComponent foo="a" bar="b" baz="c"/>
 ```
-
 ###### Good
 ```
 <img
@@ -472,8 +484,7 @@ Elements with multiple attributes should span multiple lines with one attribute 
 />
 ```
 
-##### Simple expressions in templates
-
+#### Simple expressions in templates
 Component templates should only include simple expressions; more complex expressions should be refactored into computed properties or methods. This is to make expressions declarative and allow for reuse of code.
 
 ###### Bad
@@ -484,7 +495,6 @@ Component templates should only include simple expressions; more complex express
   }).join(' ')
 }}
 ```
-
 ###### Good
 ```
 <!-- In a template -->
@@ -500,8 +510,7 @@ computed: {
 }
 ```
 
-##### Simple computed properties
-
+#### Simple computed properties
 Complex computed properties should be split into as many simpler properties as possible.
  
 ###### Bad
@@ -533,8 +542,8 @@ computed: {
 }
 ```
 
-##### Quoted attribute values
-Attribute values should always be inside quotes (single or double).
+#### Quoted attribute values
+Attribute values should always be inside double quotes.
 
 ###### Bad
 ```
@@ -545,7 +554,7 @@ Attribute values should always be inside quotes (single or double).
 <input type="text">
 ```
 
-##### Directive shorthands
+#### Directive shorthands
 Shorthands should be used ( : for *v-bind:* and @ for *v-on:*).
 
 ###### Bad
@@ -568,7 +577,7 @@ Shorthands should be used ( : for *v-bind:* and @ for *v-on:*).
 >
 ```
 
-##### Empty lines in component/instance options
+#### Empty lines in component/instance options
 Add one empty line between multi-line properties.
 
 ###### Good
@@ -599,7 +608,7 @@ computed: {
 }
 ```
 
-##### Single-file component top-level element order
+#### Single-file component top-level element order
 The following hierarchy is used in .vue files:
 
 ```
@@ -618,7 +627,7 @@ The following hierarchy is used in .vue files:
 </style>
 ```
 
-##### Using *v-if/v-else-if/v-else* without *key*
+#### Using *v-if/v-else-if/v-else* without *key*
 Use *key* with *v-if* + *v-else* if they are the same element type (e.g., both \<div> elements).
 
 ###### Bad
@@ -647,7 +656,7 @@ Use *key* with *v-if* + *v-else* if they are the same element type (e.g., both \
   {{ results }}
 </div>
 ```
-##### Element selectors with *scoped*
+#### Element selectors with *scoped*
 Prefer class selectors over element selectors when styling with *scoped*.
 
 ###### Bad
@@ -674,6 +683,5 @@ button {
 }
 </style>
 ```
-
 
 ### May the force be with you.
