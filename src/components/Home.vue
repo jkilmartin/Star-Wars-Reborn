@@ -19,13 +19,53 @@
         >
       </transition>
    </div>
-   <div class="characters">
+   <div class="container characters">
+     <div class="row sky-live-images">
+       <div class="col-6">
+          <img 
+            @mouseover="smallMoonImage = true" 
+            @mouseleave="smallMoonImage = false"
+            class="character-img" 
+            src="../assets/final/small-moon.png"
+            >
+            <transition 
+              name="image-transition" 
+              mode="out-in"
+            >
+              <img 
+                  v-show="smallMoonImage" 
+                  class="character-img full" 
+                  mode="out-in" 
+                  src="../assets/final/small-moon-full.png"
+              >
+            </transition>
+       </div>
+       <div class="col-6">
+         <img 
+            @mouseover="starshipFightersImage = true" 
+            @mouseleave="starshipFightersImage = false"
+            class="character-img" 
+            src="../assets/final/starship-fighters.png"
+            >
+            <transition 
+              name="image-transition" 
+              mode="out-in"
+            >
+              <img 
+                  v-show="starshipFightersImage" 
+                  class="character-img full" 
+                  mode="out-in" 
+                  src="../assets/final/starship-fighters-full.png"
+              >
+            </transition>
+       </div>
+     </div>
      <div class="row">
-       <div class="col-12 full-width">
+       <div class="col-3">
           <img 
             @mouseover="lukeImage = true" 
             @mouseleave="lukeImage = false"
-            class="luke-img" 
+            class="character-img" 
             src="../assets/final/luke.png"
             >
             <transition 
@@ -34,15 +74,17 @@
             >
               <img 
                   v-show="lukeImage" 
-                  class="luke-img full" 
+                  class="character-img full" 
                   mode="out-in" 
                   src="../assets/final/luke-full.png"
               >
             </transition>
+       </div>
+       <div class="col-3">
           <img 
             @mouseover="yodaImage = true" 
             @mouseleave="yodaImage = false"
-            class="yoda-img" 
+            class="character-img" 
             src="../assets/final/yoda.png"
             >
             <transition 
@@ -51,9 +93,47 @@
             >
               <img 
                   v-show="yodaImage" 
-                  class="yoda-img full" 
+                  class="character-img full" 
                   mode="out-in" 
                   src="../assets/final/yoda-full.png"
+              >
+            </transition>
+       </div>
+       <div class="col-3">
+          <img 
+            @mouseover="leiaImage = true" 
+            @mouseleave="leiaImage = false"
+            class="character-img" 
+            src="../assets/final/leia.png"
+            >
+            <transition 
+              name="image-transition" 
+              mode="out-in"
+            >
+              <img 
+                  v-show="leiaImage" 
+                  class="character-img full" 
+                  mode="out-in" 
+                  src="../assets/final/leia-full.png"
+              >
+            </transition>
+       </div>
+       <div class="col-3">
+          <img 
+            @mouseover="darthVaderImage = true" 
+            @mouseleave="darthVaderImage = false"
+            class="character-img" 
+            src="../assets/final/darthvader.png"
+            >
+            <transition 
+              name="image-transition" 
+              mode="out-in"
+            >
+              <img 
+                  v-show="darthVaderImage" 
+                  class="character-img full" 
+                  mode="out-in" 
+                  src="../assets/final/darthvader-full.png"
               >
             </transition>
        </div>
@@ -70,6 +150,10 @@ export default {
     moonImage: false,
     lukeImage: false,
     yodaImage: false,
+    leiaImage: false,
+    darthVaderImage: false,
+    smallMoonImage: false,
+    starshipFightersImage: false,
     }
   }
 };
@@ -79,6 +163,9 @@ export default {
 <style scoped>
   .home-bg-img {
     background-image: url(../assets/final/home-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     height: 1300px;
     width: 100vw;
   }
@@ -93,11 +180,14 @@ export default {
 
   .characters {
     position: absolute;
-    bottom: -80px;
+    bottom: 0px;
+    left: 20%;
   }
 
-  .full-width {
-    width: 100vw;
+  .sky-live-images {
+    position: relative;
+    bottom: 180px;
+    left: 12%;
   }
 
   /*Image classes for z-index and position  */
@@ -112,26 +202,13 @@ export default {
     z-index: 1;
   }
 
-  .luke-img {
+  .character-img {
     position: absolute;
     z-index: 2;
-    left: 20%;
   }
 
-  .luke-img.full {
+  .character-img.full {
     z-index: 1;
   }
-
-  .yoda-img {
-    position: absolute;
-    z-index: 2;
-    left: 30%;
-    top: 80px;
-  }
-
-  .yoda-img.full {
-    z-index: 1;
-  }
-
 
 </style>
