@@ -34,15 +34,42 @@ Commit messages should describe the original issue, why a change was made, and h
 
 ## JavaScript/Vue.js/CSS Styleguide
 
+#### ES5/6
+- Use `let` and `const` rather than `var`.
+- We avoid arrow functions because of scope issues when using `this`.
+- Use ES6 syntax to import/export: 
+```
+  export default TestModule;
+
+  import TestModule from './TestModule';
+  ```
+- Use Promises as async functions.
+
+#### Within-component naming
+- Functions and variables use camelCase.
+- Constants should be named as CONSTANT_VALUE.
+
 #### Semicolons
 Always use semicolons to close statements.
+
+#### Commenting
+Functions should be commented.
+All third-party code should also be acknowledged with comments.
+Comments should follow the syntax:
+```
+/** 
+  * A concise description of what the function does.
+  * @param {number} num1
+  * @return {number} num2
+  */
+```
 
 #### Component names should be multi-word
 Component names, except for root App components, should consist of several words to prevent conflict with HTML elements (which are single words).
 
 ###### Bad
 ```
-Vue.component('todo', {
+Vue.component('Todo', {
   // ...
 })
 
@@ -53,7 +80,7 @@ export default {
 ```
 ###### Good
 ```
-Vue.component('todo-item', {
+Vue.component('TodoItem', {
   // ...
 })
 
@@ -252,7 +279,7 @@ Always use the *\$_* prefix for custom private properties in a plugin, mixin, et
 
 ###### Bad
 ```
-var myGreatMixin = {
+let myGreatMixin = {
   // ...
   methods: {
     update: function () {
@@ -263,7 +290,7 @@ var myGreatMixin = {
 ```
 ###### Good
 ```
-var myGreatMixin = {
+let myGreatMixin = {
   // ...
   methods: {
     $_myGreatMixin_update: function () {
@@ -289,7 +316,7 @@ components/
 ```
 
 #### Single-file component filename casing
-Filenames of single-file components should either be always PascalCase or always kebab-case.
+Filenames of single-file components should always be PascalCase.
 ###### Bad
 ```
 components/
@@ -302,9 +329,6 @@ components/
 ```
 components/
 |- MyComponent.vue
-
-components/
-|- my-component.vue
 ```
 
 #### Tightly coupled component names
@@ -341,7 +365,7 @@ components/
 ```
 
 #### Self-closing components
-Components with no content should be self-closing in single-file components and string templates, but never in DOM templates.
+Components with no content should be self-closing in single-file components and string templates but never in DOM templates.
 Components that self-close communicate that they not only have no content, but are meant to have no content. It is akin to the difference between a blank page in a book and one labeled “This page intentionally left blank.” The code is also cleaner without the unnecessary closing tag.
 
 ###### Bad
@@ -382,46 +406,6 @@ Component names should always be PascalCase in single-file components and string
 
 <!-- In DOM templates -->
 <my-component></my-component>
-```
-
-#### Component name casing in JavaScript
-Component names in JavaScript should always be PascalCase, although they may be kebab-case inside strings for simple applications that only use global component registration through Vue.component.
- 
-###### Bad
-```
-Vue.component('myComponent', {
-  // ...
-})
-
-import myComponent from './MyComponent.vue'
-
-export default {
-  name: 'myComponent',
-  // ...
-}
-
-export default {
-  name: 'my-component',
-  // ...
-}
-```
-###### Good
-```
-Vue.component('MyComponent', {
-  // ...
-})
-
-
-Vue.component('my-component', {
-  // ...
-})
-
-import MyComponent from './MyComponent.vue'
-
-export default {
-  name: 'MyComponent',
-  // ...
-}
 ```
 
 #### Full-word component names
@@ -517,7 +501,7 @@ Complex computed properties should be split into as many simpler properties as p
 ```
 computed: {
   price: function () {
-    var basePrice = this.manufactureCost / (1 - this.profitMargin)
+    let basePrice = this.manufactureCost / (1 - this.profitMargin)
     return (
       basePrice -
       basePrice * (this.discountPercent || 0)
@@ -656,6 +640,7 @@ Use *key* with *v-if* + *v-else* if they are the same element type (e.g., both \
   {{ results }}
 </div>
 ```
+
 #### Element selectors with *scoped*
 Prefer class selectors over element selectors when styling with *scoped*.
 
@@ -683,5 +668,9 @@ button {
 }
 </style>
 ```
+
+#### Class/ID selector names (styling)
+- CSS class selector names use `kebab-case`.
+- ID selector names use camelCase.
 
 ### May the force be with you.
