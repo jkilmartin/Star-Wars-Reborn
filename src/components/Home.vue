@@ -20,6 +20,11 @@
       </transition>
    </div>
    <div class="container characters">
+     <div class="row">
+       <div class="col-12 release-date">
+         <h1>March 34<sup>th</sup> 1956</h1>
+       </div>
+     </div>
      <div class="row sky-live-images">
        <div class="col-6">
           <img 
@@ -190,25 +195,45 @@ export default {
     left: 12%;
   }
 
+  .release-date {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .release-date h1 {
+    font-size: 32px;
+    font-family: 'Anton', sans-serif;
+    color: #222;
+    position: relative;
+    bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   /*Image classes for z-index and position  */
   .big-moon-img {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
+    cursor: pointer;
   }
 
   .big-moon-img.full {
     z-index: 1;
+    cursor: pointer;
   }
 
   .character-img {
     position: absolute;
     z-index: 2;
+    cursor: pointer;
   }
 
   .character-img.full {
     z-index: 1;
+    cursor: pointer;
   }
 
 </style>
