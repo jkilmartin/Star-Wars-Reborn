@@ -1,36 +1,55 @@
 <template>
     <div class="table">
         <table>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
 
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
 
 <script>
-
+    export default {
+        name: "Table",
+        data: function() {
+            return {
+                tableContents: []
+            };
+        },
+    methods: {
+        // I feel like I've done this wrong still wrapping my head around it
+        getInformation: function() {
+            this.$http
+                .get("https://swapi.co/api/people/1/")
+                .then(function(){
+                    this.tableContents = data.body.tableContents;
+                })
+        }
+    }
+}
 </script>
 
 <style>
