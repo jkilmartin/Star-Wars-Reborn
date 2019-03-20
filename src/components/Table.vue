@@ -1,29 +1,31 @@
 <template>
-    <div class="table">
-        <table>
+    <div >
+        <!-- the classes on this table are from bootstrap, giving it different style types -->
+        <table class="table container table-striped table-bordered table-hover table-sm">
             <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
+                    <!-- 'th' tags are for the information header, 'td is for the description' -->
+                    <th scope="col"></th>
                     <td></td>
                 </tr>
 
                 <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td></td>
+                    <th scope="col"></th>
                     <td></td>
                 </tr>
 
                 <tr>
+                    <th scope="col"></th>
                     <td></td>
+                </tr>
+
+                <tr>
+                    <th scope="col"></th>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th scope="col"></th>
                     <td></td>
                 </tr>
             </tbody>
@@ -33,39 +35,12 @@
 
 <script>
     export default {
-        name: "Table",
-        data: function() {
-            return {
-                tableContents: []
-            };
-        },
-    methods: {
-        // I feel like I've done this wrong still wrapping my head around it
-        getInformation: function() {
-            this.$http
-                .get("https://swapi.co/api/people/1/")
-                .then(function(){
-                    this.tableContents = data.body.tableContents;
-                })
-        }
-    }
+        name: "Table"
 }
 </script>
 
 <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
+.table {
+    width: 50%;
 }
 </style>
