@@ -12,7 +12,8 @@ export default {
   name: "GetData",
   data: function() {
     return {
-      data: []
+      data: [],
+      name: ''
     };
   },
   created: function() {
