@@ -37,10 +37,6 @@
 export default {
   name: "Table",
   props: ["data"]
-  // data: {
-  //   data: [],
-  //   source: ""
-  // }
 };
 </script>
 

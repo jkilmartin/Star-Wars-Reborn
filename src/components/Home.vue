@@ -1,7 +1,7 @@
 <template>
   <div class="home-bg-img">
     <div>
-      <router-link :to="'/dataScreen'" exact>
+      <router-link :to="'/datascreen'" exact>
       <img
         @click="getDataByUrl('planets/2/')"
         @mouseover="moonImage = true"
@@ -29,7 +29,7 @@
       </div>
       <div class="row sky-live-images">
         <div class="col-6">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=1
             @click="getDataByUrl"
@@ -49,7 +49,7 @@
           </transition>
         </div>
         <div class="col-6">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=2
             @click="getDataByUrl"
@@ -71,7 +71,7 @@
       </div>
       <div class="row">
         <div class="col-3">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=3
             @click="getDataByUrl"
@@ -91,7 +91,7 @@
           </transition>
         </div>
         <div class="col-3">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=4
             @click="getDataByUrl"
@@ -111,7 +111,7 @@
           </transition>
         </div>
         <div class="col-3">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=5
             @click="getDataByUrl"
@@ -131,7 +131,7 @@
           </transition>
         </div>
         <div class="col-3">
-          <router-link v-bind:to="'/dataScreen'" exact>
+          <router-link v-bind:to="'/datascreen'" exact>
           <img
             id=6
             @click="getDataByUrl"

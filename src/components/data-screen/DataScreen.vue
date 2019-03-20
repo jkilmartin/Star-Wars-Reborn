@@ -24,7 +24,7 @@ export default {
       urlTag: ""
   },
   created: function() {
-      getDataByUrl();
+      this.getDataByUrl();
   },
   methods: {
     getDataByUrl: function() {
