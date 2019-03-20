@@ -1,12 +1,14 @@
 <template>
   <div>
-    <ul>
-      <li v-for="obj in data" v-bind:key="obj.name"></li>
+    <ul v-for="obj in data" v-bind:key="obj">
+      <li>{{obj.name}}</li>
+      <li>{{obj.terrain}}</li>
     </ul>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 
 export default {
   name: "GetData",
@@ -15,9 +17,16 @@ export default {
       data: [],
       name: ''
     };
+=======
+import pick from "lodash/pick";
+export default {
+  name: "GetData",
+  data: {
+      data: []
+>>>>>>> a6d0a1ac23d0e6a8cfa386ca55943e9651e8a784
   },
   created: function() {
-    this.getData("starships", "star");
+    this.getData("planets", "ald");
   },
   methods: {
     getData: function(searchCategory, searchInput) {
@@ -50,73 +59,47 @@ export default {
     getPeopleAttributes: function(dataArray) {
       let filteredList = [];
       $.each(dataArray, function(i, person) {
-        filteredList[i] = (({
-          name,
-          gender,
-          height,
-          mass,
-          hair_color,
-          skin_color,
-          eye_color,
-          birth_year
-        }) => ({
-          name,
-          gender,
-          height,
-          mass,
-          hair_color,
-          skin_color,
-          eye_color,
-          birth_year
-        }))(person);
+        filteredList.push(pick((person), [
+          'name',
+          'gender',
+          'height',
+          'mass',
+          'hair_color',
+          'skin_color',
+          'eye_color',
+          'birth_year'
+        ]));
       });
       return filteredList;
     },
     getStarshipsAttributes: function(dataArray) {
       let filteredList = [];
       $.each(dataArray, function(i, starship) {
-        filteredList[i] = (({
-          name,
-          model,
-          cost_in_credits,
-          length,
-          max_atmosphering_speed,
-          starship_class
-        }) => ({
-          name,
-          model,
-          cost_in_credits,
-          length,
-          max_atmosphering_speed,
-          starship_class
-        }))(starship);
+        filteredList.push(pick((starship), [
+          'name',
+          'model',
+          'cost_in_credits',
+          'length',
+          'max_atmosphering_speed',
+          'starship_class'
+        ]));
       });
       return filteredList;
     },
     getPlanetsAttributes: function(dataArray) {
       let filteredList = [];
       $.each(dataArray, function(i, planet) {
-        filteredList[i] = (({
-          name,
-          rotation_period,
-          orbital_period,
-          diameter,
-          climate,
-          gravity,
-          terrain,
-          surface_water,
-          population
-        }) => ({
-          name,
-          rotation_period,
-          orbital_period,
-          diameter,
-          climate,
-          gravity,
-          terrain,
-          surface_water,
-          population
-        }))(planet);
+        filteredList.push(pick((planet), [
+          'name',
+          'rotation_period',
+          'orbital_period',
+          'diameter',
+          'climate',
+          'gravity',
+          'surface_water',
+          'terrain',
+          'population'
+        ]));
       });
       return filteredList;
     }
