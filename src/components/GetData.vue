@@ -29,8 +29,8 @@ export default {
         )
         .then(function(data) {
           this.filterData(searchCategory, data.body.results);
+          console.log(this.data);
         });
-      console.log(this.data);
     },
     filterData: function(searchCategory, dataArray) {
       switch (searchCategory) {
