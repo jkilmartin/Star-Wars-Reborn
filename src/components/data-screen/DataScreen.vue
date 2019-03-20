@@ -37,7 +37,13 @@ export default {
           .get("https://swapi.co/api/" + this.urlTag + "?format=json")
           .then(function(data) {
             array.push(data.body);
-            this.data = this.getPlanetsAttributes(array);
+            if(/planets/i.test(this.urlTag)) {
+              this.data = this.getPlanetsAttributes(array);
+            }else if(/people/i.test(this.urlTag)) {              
+              this.data = this.getPeopleAttributes(array);
+            }else if(/starships/i.test(this.urlTag)) {
+              this.data = this.getStarshipsAttributes(array);
+            }
           });
       } else {
         let array = [];

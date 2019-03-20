@@ -31,8 +31,7 @@
         <div class="col-6">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=1
-            @click="getDataByUrl"
+            @click="getDataByUrl('planets/7/')"
             @mouseover="smallMoonImage = true"
             @mouseleave="smallMoonImage = false"
             class="character-img"
@@ -51,8 +50,7 @@
         <div class="col-6">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=2
-            @click="getDataByUrl"
+            @click="getDataByUrl('starships/12/')"
             @mouseover="starshipFightersImage = true"
             @mouseleave="starshipFightersImage = false"
             class="character-img"
@@ -73,8 +71,7 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=3
-            @click="getDataByUrl"
+            @click="getDataByUrl('people/1/')"
             @mouseover="lukeImage = true"
             @mouseleave="lukeImage = false"
             class="character-img"
@@ -93,8 +90,7 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=4
-            @click="getDataByUrl"
+            @click="getDataByUrl('people/20/')"
             @mouseover="yodaImage = true"
             @mouseleave="yodaImage = false"
             class="character-img"
@@ -113,8 +109,7 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=5
-            @click="getDataByUrl"
+            @click="getDataByUrl('people/5/')"
             @mouseover="leiaImage = true"
             @mouseleave="leiaImage = false"
             class="character-img"
@@ -133,8 +128,7 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            id=6
-            @click="getDataByUrl"
+            @click="getDataByUrl('people/4/')"
             @mouseover="darthVaderImage = true"
             @mouseleave="darthVaderImage = false"
             class="character-img"
