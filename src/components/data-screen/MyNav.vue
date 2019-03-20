@@ -9,9 +9,9 @@
     </div>
 
     <div>
-      <img class="people-header" src="../assets/final/people-header.jpg" alt="">
+      <!-- <img class="people-header" src="../assets/final/people-header.jpg" alt="">
       <img class="hidden" src="../assets/final/planets-header.jpg" alt="">
-      <img class="hidden" src="../assets/final/ships-header.jpg" alt="">
+      <img class="hidden" src="../assets/final/ships-header.jpg" alt=""> -->
     </div>
   </div>
 </template>
