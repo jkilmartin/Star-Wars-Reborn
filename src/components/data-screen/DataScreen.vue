@@ -19,9 +19,11 @@ export default {
     MyNav,
     Table
   },
-  data: {
-      data: [],
-      urlTag: ""
+  data: function() {
+    return {
+        data: [],
+        urlTag: ""
+    }
   },
   created: function() {
       this.getDataByUrl();
@@ -36,7 +38,14 @@ export default {
           .then(function(data) {
             array.push(data.body);
             this.data = this.getPlanetsAttributes(array);
-            console.log(this.data);
+          });
+      } else {
+        let array = [];
+        this.$http
+          .get("https://swapi.co/api/people/1/?format=json")
+          .then(function(data) {
+            array.push(data.body);
+            this.data = this.getPeopleAttributes(array);
           });
       }
     },
