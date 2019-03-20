@@ -2,6 +2,7 @@
   <div class="secondary-page-bg-img">
     <MyNav/>
     <Table :data="data" />
+    <UseTheForceBtn />
     <!-- <ul v-for="obj in data" v-bind:key="obj">
       <li>{{obj.name}}</li>
       <li>{{obj.terrain}}</li>
@@ -13,11 +14,13 @@
 import pick from "lodash/pick";
 import MyNav from "./MyNav.vue";
 import Table from "./Table.vue";
+import UseTheForceBtn from "./UseTheForceBtn.vue"
 export default {
   name: "DataScreen",
   components: {
     MyNav,
-    Table
+    Table,
+    UseTheForceBtn
   },
   data: {
       data: [],
