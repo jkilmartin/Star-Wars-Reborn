@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 export default {
   name: "GetData",
   data: function() {
@@ -15,7 +16,7 @@ export default {
     };
   },
   created: function() {
-    this.getData("starships", "star");
+    this.getData("people", "darth");
   },
   methods: {
     getData: function(searchCategory, searchInput) {
@@ -48,25 +49,35 @@ export default {
     getPeopleAttributes: function(dataArray) {
       let filteredList = [];
       $.each(dataArray, function(i, person) {
-        filteredList[i] = (({
-          name,
-          gender,
-          height,
-          mass,
-          hair_color,
-          skin_color,
-          eye_color,
-          birth_year
-        }) => ({
-          name,
-          gender,
-          height,
-          mass,
-          hair_color,
-          skin_color,
-          eye_color,
-          birth_year
-        }))(person);
+        filteredList.push(_.pick((person), [
+          'name',
+          'gender',
+          'height',
+          'mass',
+          'hair_color',
+          'skin_color',
+          'eye_color',
+          'birth_year'
+        ]));
+        // filteredList[i] = (({
+        //   name,
+        //   gender,
+        //   height,
+        //   mass,
+        //   hair_color,
+        //   skin_color,
+        //   eye_color,
+        //   birth_year
+        // }) => ({
+        //   name,
+        //   gender,
+        //   height,
+        //   mass,
+        //   hair_color,
+        //   skin_color,
+        //   eye_color,
+        //   birth_year
+        // }))(person);
       });
       return filteredList;
     },
