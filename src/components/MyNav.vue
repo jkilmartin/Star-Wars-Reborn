@@ -6,10 +6,21 @@
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
       <input type="text" class="form-control" placeholder="Search" />
-     
+    </div>
+
+    <div>
+      <img class="people-header" src="../assets/final/people-header.jpg" alt="">
+      <img class="hidden" src="../assets/final/planets-header.jpg" alt="">
+      <img class="hidden" src="../assets/final/ships-header.jpg" alt="">
     </div>
   </div>
 </template>
+
+<script>
+    export default {
+        name: "MyNav"
+    }
+</script>
 
 <style scoped>
 button {
@@ -23,4 +34,9 @@ button {
   margin-left: 20%;
   margin-right: 20%;
 }
+
+.hidden {
+  display: none;
+}
+
 </style>
