@@ -1,6 +1,6 @@
 <template>
   <div class="secondary-page-bg-img">
-    <MyNav/>
+    <MyNav :imgValue="imgValue" />
     <Table :data="data" />
     <!-- <ul v-for="obj in data" v-bind:key="obj">
       <li>{{obj.name}}</li>
@@ -21,15 +21,23 @@ export default {
   },
   data: function() {
     return {
-        data: [],
-        urlTag: ""
-    }
+      data: [],
+      urlTag: "",
+      imgValue: 0
+    };
   },
   created: function() {
-      this.getDataByUrl();
+    console.log(this.$route.params.urlTag)
+    this.getInitialData();
+    this.getInitialImage();
   },
   methods: {
-    getDataByUrl: function() {
+    getInitialImage: function() {
+      if (this.$route.params.imgValue) {
+        this.imgValue = this.$route.params.imgValue;
+      }
+    },
+    getInitialData: function() {
       if (this.$route.params.urlTag) {
         this.urlTag = this.$route.params.urlTag;
         let array = [];
@@ -37,11 +45,11 @@ export default {
           .get("https://swapi.co/api/" + this.urlTag + "?format=json")
           .then(function(data) {
             array.push(data.body);
-            if(/planets/i.test(this.urlTag)) {
+            if (/planets/i.test(this.urlTag)) {
               this.data = this.getPlanetsAttributes(array);
-            }else if(/people/i.test(this.urlTag)) {              
+            } else if (/people/i.test(this.urlTag)) {
               this.data = this.getPeopleAttributes(array);
-            }else if(/starships/i.test(this.urlTag)) {
+            } else if (/starships/i.test(this.urlTag)) {
               this.data = this.getStarshipsAttributes(array);
             }
           });

@@ -3,11 +3,13 @@
     <div>
       <router-link :to="'/datascreen'" exact>
       <img
-        @click="getDataByUrl('planets/2/')"
+        :id="'planets/2'"
+        @click="getData"
         @mouseover="moonImage = true"
         @mouseleave="moonImage = false"
         class="big-moon-img"
         src="../assets/final/big-moon.png"
+        title="Alderaan"
       >
       </router-link>
       <transition name="image-transition" mode="out-in">
@@ -31,11 +33,13 @@
         <div class="col-6">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('planets/7/')"
+            :id="'planets/7/'"
+            @click="getData"
             @mouseover="smallMoonImage = true"
             @mouseleave="smallMoonImage = false"
             class="character-img"
             src="../assets/final/small-moon.png"
+            title="Endor"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -50,11 +54,13 @@
         <div class="col-6">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('starships/12/')"
+            :id="'starships/12/'"
+            @click="getData"
             @mouseover="starshipFightersImage = true"
             @mouseleave="starshipFightersImage = false"
             class="character-img"
             src="../assets/final/starship-fighters.png"
+            title="X-wing"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -71,11 +77,13 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('people/1/')"
+            :id="'people/1/'"
+            @click="getData"
             @mouseover="lukeImage = true"
             @mouseleave="lukeImage = false"
             class="character-img"
             src="../assets/final/luke.png"
+            title="Luke Skywalker"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -90,11 +98,13 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('people/20/')"
+            :id="'people/20/'"
+            @click="getData"
             @mouseover="yodaImage = true"
             @mouseleave="yodaImage = false"
             class="character-img"
             src="../assets/final/yoda.png"
+            title="Yoda"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -109,11 +119,13 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('people/5/')"
+            :id="'people/5/'"
+            @click="getData"
             @mouseover="leiaImage = true"
             @mouseleave="leiaImage = false"
             class="character-img"
             src="../assets/final/leia.png"
+            title="Princess Leia"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -128,11 +140,13 @@
         <div class="col-3">
           <router-link v-bind:to="'/datascreen'" exact>
           <img
-            @click="getDataByUrl('people/4/')"
+            :id="'people/4/'"
+            @click="getData"
             @mouseover="darthVaderImage = true"
             @mouseleave="darthVaderImage = false"
             class="character-img"
             src="../assets/final/darthvader.png"
+            title="Darth Vader"
           >
           </router-link>
           <transition name="image-transition" mode="out-in">
@@ -164,8 +178,32 @@ export default {
     };
   },
   methods: {
-    getDataByUrl: function(urlTag) {
-      this.$router.push({name: "datascreen", params: { urlTag: urlTag } });
+    getData: function(evt) {
+      let imgValue = 0;
+      switch (evt.target.title) {
+        case "Alderaan":
+          imgValue = 2;
+          break;
+        case "Endor":
+          imgValue = 2;
+          break;
+        case "X-wing":
+          imgValue = 1;
+          break;
+        case "Luke Skywalker":
+          imgValue = 0;
+          break;
+        case "Yoda":
+          imgValue = 0;
+          break;
+        case "Princess Leia":
+          imgValue = 0;
+          break;
+        case "Darth Vader":
+          imgValue = 0;
+          break;
+      }
+      this.$router.push({name: "datascreen", params: { urlTag: evt.target.id, imgValue: imgValue } });
     }
   }
 };
