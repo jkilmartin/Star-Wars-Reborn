@@ -27,7 +27,6 @@ export default {
     };
   },
   created: function() {
-    console.log(this.$route.params.urlTag)
     this.getInitialData();
     this.getInitialImage();
   },
