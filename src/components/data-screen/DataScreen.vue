@@ -1,6 +1,9 @@
 <template>
   <div class="secondary-page-bg-img">
     <MyNav :imgValue="imgValue" />
+    <div :show="active" class="spinner-grow text-danger loading" style="width: 60px; height: 60px;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
     <Table :data="data" />
     <!-- <ul v-for="obj in data" v-bind:key="obj">
       <li>{{obj.name}}</li>
@@ -23,7 +26,8 @@ export default {
     return {
       data: [],
       urlTag: "",
-      imgValue: 0
+      imgValue: 0, 
+      active: false
     };
   },
   created: function() {
@@ -38,6 +42,7 @@ export default {
     },
     getInitialData: function() {
       if (this.$route.params.urlTag) {
+        this.active = true;
         this.urlTag = this.$route.params.urlTag;
         let array = [];
         this.$http
@@ -51,6 +56,7 @@ export default {
             } else if (/starships/i.test(this.urlTag)) {
               this.data = this.getStarshipsAttributes(array);
             }
+            this.active = false;
           });
       } else {
         let array = [];
@@ -147,8 +153,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body {
-  /* background-image: url(../assets/final/secondary-page.png);
-  background-size: cover; */
-}
+.secondary-page-bg-img {
+  background-image: url(../../assets/final/secondary-page.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 1300px;
+  width: 100vw;}
+
+  .loading {
+    display: none;
+  }
+
+  .loading.active {
+    display: block;
+  }
 </style>

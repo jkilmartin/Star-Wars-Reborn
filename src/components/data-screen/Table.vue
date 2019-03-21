@@ -23,5 +23,6 @@ export default {
 <style>
 .table {
   width: 50%;
+  margin-top: 50px;
 }
 </style>
