@@ -170,7 +170,7 @@ export default {
 
   .spinner-grow {
     display: none;
-    margin: 5% auto;
+    margin: 3% auto;
   }
 
   .spinner-grow.active {

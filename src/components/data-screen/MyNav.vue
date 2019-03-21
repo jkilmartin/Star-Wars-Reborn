@@ -53,6 +53,7 @@ export default {
         this.category = 'planets';
       }
       this.$refs.search.focus();
+      // Set table display to none here until something is searched
     },
     handleSearch: function() {
       this.$parent.getData(this.category, this.searchInput);
