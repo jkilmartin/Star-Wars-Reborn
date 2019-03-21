@@ -7,7 +7,7 @@
     </div>
     <form @submit.prevent="handleSearch">
       <div class="form-group">
-        <input type="search" class="form-control" placeholder="Search" v-model="searchInput">
+        <input type="search" class="form-control" placeholder="Search" v-model="searchInput" ref="search">
       </div>
     </form>
 
@@ -52,6 +52,7 @@ export default {
       }else {
         this.category = 'planets';
       }
+      this.$refs.search.focus();
     },
     handleSearch: function() {
       this.$parent.getData(this.category, this.searchInput);
