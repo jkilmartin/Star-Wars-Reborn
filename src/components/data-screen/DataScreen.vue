@@ -1,10 +1,10 @@
 <template>
   <div class="secondary-page-bg-img">
     <MyNav :imgValue="imgValue" />
-    <div :class="{active: isActive}" class="spinner-grow text-danger loading" style="width: 60px; height: 60px;" role="status">
+    <div :class="{active: spinnerIsActive}" class="spinner-grow text-danger loading" style="width: 60px; height: 60px;" role="status">
       <span class="sr-only">Loading...</span>
     </div>
-    <Table :data="data" />
+    <Table v-show="tableIsActive" :data="data" />
   </div>
 </template>
 
@@ -23,7 +23,8 @@ export default {
       data: [],
       urlTag: "",
       imgValue: 0, 
-      isActive: true
+      spinnerIsActive: true,
+      tableIsActive: false
     };
   },
   created: function() {
@@ -37,14 +38,15 @@ export default {
       }
     },
     getInitialData: function() {
-      this.isActive = true;
+      this.spinnerIsActive = true;
+      this.tableIsActive = false;
       if (this.$route.params.urlTag) {
         this.urlTag = this.$route.params.urlTag;
         let array = [];
         this.$http
           .get("https://swapi.co/api/" + this.urlTag + "?format=json")
           .then(function(data) {
-            this.isActive = false;
+            this.spinnerIsActive = false;
             array.push(data.body);
             if (/planets/i.test(this.urlTag)) {
               this.data = this.getPlanetsAttributes(array);
@@ -53,21 +55,24 @@ export default {
             } else if (/starships/i.test(this.urlTag)) {
               this.data = this.getStarshipsAttributes(array);
             }
+            this.tableIsActive = true;
           });
       } else {
         let array = [];
         this.$http
           .get("https://swapi.co/api/people/1/?format=json")
           .then(function(data) {
-            this.isActive = false;
+            this.spinnerIsActive = false;
             array.push(data.body);
             this.data = this.getPeopleAttributes(array);
+            this.tableIsActive = true;
           });
       }
 
     },
     getData: function(searchCategory, searchInput) {
-      this.isActive = true;
+      this.spinnerIsActive = true;
+      this.tableIsActive = false;
       this.$http
         .get(
           "https://swapi.co/api/" +
@@ -78,7 +83,8 @@ export default {
         )
         .then(function(data) {
           this.filterData(searchCategory, data.body.results);
-          this.isActive = false;
+          this.spinnerIsActive = false;
+          this.tableIsActive = true;
         });
     },
     filterData: function(searchCategory, dataArray) {
@@ -164,7 +170,7 @@ export default {
 
   .spinner-grow {
     display: none;
-    margin: 2% auto;
+    margin: 5% auto;
   }
 
   .spinner-grow.active {
