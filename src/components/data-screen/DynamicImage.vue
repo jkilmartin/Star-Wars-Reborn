@@ -1,23 +1,44 @@
 <template>
     <div>
-        <img class="header-image" v-bind:src="this.imgsrc">
+        <img class="header-image" :src="data">
     </div>
 </template>
 
 <script>
     export default {
         name: "DynamicImage",
-        props: ["imgsrc"],
-        methods: {
-            changeSource: function(src) {
+        props: ["data"],
+        // created: function() {
+        //     let pathToImg = require.context(this.data, true);
+        // },
+        // data: {
+        //     function() {
+        //         return{
+        //             data: require.context(this.data, true)
+        //         }
+        //     }
+        // }
+        // data: function() {
+        //     return {
+        //         srcsyntax: require(imgsrc)
+        //     }
+        // }
+    //     data: function() {
+    //         return {
+    //             imgsrc: require("../../assets/final/people-header.jpg")
+    //         }
+    // }
+
+    //     methods: {
+    //         changeSource: function(data) {
                 
-            }
-        }
-        watch: {
-        imgsrc: function(src) {
-            this.changeSource(src);
-        }
-    }
+    //         }
+    //     },
+    //     watch: {
+    //         data: function(data) {
+    //             this.changeSource(data);
+    //     }
+    // }
 }
 </script>
 

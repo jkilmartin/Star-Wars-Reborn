@@ -1,15 +1,15 @@
 <template>
   <div class="container text-center">
-    <button type="button" class="btn btn-danger btn-lg ">People</button>
-    <button type="button" class="btn btn-danger btn-lg">Starships</button>
-    <button type="button" class="btn btn-danger btn-lg">Planets</button>
+    <button :value="0" @click="changeImg" type="button" class="btn btn-danger btn-lg ">People</button>
+    <button :value="1" @click="changeImg" type="button" class="btn btn-danger btn-lg">Starships</button>
+    <button :value="2" @click="changeImg" type="button" class="btn btn-danger btn-lg">Planets</button>
     <div class="form-group has-search">
       <span class="fa fa-search form-control-feedback"></span>
       <input type="text" class="form-control" placeholder="Search" />
     </div>
 
     <div>
-      <DynamicImage :data="imgsrc"/>
+      <DynamicImage :data="data"/>
       <!-- <img class="people-header" src="../assets/final/people-header.jpg" alt="">
       <img class="hidden" src="../assets/final/planets-header.jpg" alt="">
       <img class="hidden" src="../assets/final/ships-header.jpg" alt=""> -->
@@ -26,9 +26,15 @@
         },
         data: function(){
           return {
-            //require needed to tell webpack to handle as a strong dependency
-                imgsrc: require("../../assets/final/people-header.jpg")
-
+                data: 'https://i.ibb.co/XyXWfjF/people-header.jpg'
+          }
+        },
+        methods: {
+          changeImg: function(evt){
+            let array = ['https://i.ibb.co/XyXWfjF/people-header.jpg', 'https://i.ibb.co/z5CkCNC/ships-header.jpg', 'https://i.ibb.co/w6fGGcK/planets-header.jpg']
+            this.data = array[evt.target.value];
+            // this.data = this.props[key];
+            // console.log(this.data);
           }
         }
     }
