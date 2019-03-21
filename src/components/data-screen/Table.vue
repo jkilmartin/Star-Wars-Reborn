@@ -8,26 +8,6 @@
           <th scope="row">{{key}}</th>
           <td scope="col">{{value}}</td>
         </tr>
-
-        <!-- <tr>
-          <th scope="col"></th>
-          <td></td>
-        </tr>
-
-        <tr>
-          <th scope="col"></th>
-          <td></td>
-        </tr>
-
-        <tr>
-          <th scope="col"></th>
-          <td></td>
-        </tr>
-
-        <tr>
-          <th scope="col"></th>
-          <td></td>
-        </tr> -->
       </tbody>
     </table>
   </div>
@@ -37,9 +17,6 @@
 export default {
   name: "Table",
   props: ["data"]
-  // created: function() {
-  //   console.log(this.data);
-  // }
 };
 </script>
 
