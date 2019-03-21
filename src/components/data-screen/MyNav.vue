@@ -9,6 +9,7 @@
     </div>
 
     <div>
+      <DynamicImage :data="imgsrc"/>
       <!-- <img class="people-header" src="../assets/final/people-header.jpg" alt="">
       <img class="hidden" src="../assets/final/planets-header.jpg" alt="">
       <img class="hidden" src="../assets/final/ships-header.jpg" alt=""> -->
@@ -17,8 +18,19 @@
 </template>
 
 <script>
+    import DynamicImage from "./DynamicImage.vue"
     export default {
-        name: "MyNav"
+        name: "MyNav",
+        components: {
+          DynamicImage
+        },
+        data: function(){
+          return {
+            //require needed to tell webpack to handle as a strong dependency
+                imgsrc: require("../../assets/final/people-header.jpg")
+
+          }
+        }
     }
 </script>
 
