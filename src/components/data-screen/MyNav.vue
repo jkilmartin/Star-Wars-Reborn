@@ -2,9 +2,10 @@
   <div class="container text-center">
     <h1>Search...</h1>
     <div class="top-buttons">
-      <button :value="0" :class="{buttonActive: buttonsAreActive[0]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">People</button>
-      <button :value="1" :class="{buttonActive: buttonsAreActive[1]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Starships</button>
-      <button :value="2" :class="{buttonActive: buttonsAreActive[2]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Planets</button>
+      <button type="button" class="btn btn-danger btn-lg"><router-link v-bind:to="'/'">Home</router-link></button>
+      <button :value="0" @click="handleCategory" type="button" class="btn btn-danger btn-lg">People</button>
+      <button :value="1" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Starships</button>
+      <button :value="2" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Planets</button>
     </div>
     <form @submit.prevent="handleSearch">
       <div class="form-group">
@@ -87,6 +88,14 @@ button {
   box-shadow: 7px 10px 5px -5px rgba(0, 0, 0, 0.17);
 }
 
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
 .top-buttons {
   margin-bottom: 19px;
 }
