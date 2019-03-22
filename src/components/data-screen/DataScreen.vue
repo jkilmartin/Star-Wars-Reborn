@@ -195,9 +195,9 @@ export default {
 .secondary-page-bg-img {
   background-image: url(../../assets/final/secondary-page.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
   min-height: 100vh;
-  width: 100vw;
+  max-width: 100vw;
   padding-bottom: 50px;
   }
 
