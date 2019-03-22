@@ -1,9 +1,10 @@
 <template>
   <div class="container text-center">
+    <h1>Search...</h1>
     <div class="top-buttons">
-      <button :value="0" @click="handleCategory" type="button" class="btn btn-danger btn-lg">People</button>
-      <button :value="1" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Starships</button>
-      <button :value="2" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Planets</button>
+      <button :value="0" :class="{buttonActive: buttonsAreActive[0]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">People</button>
+      <button :value="1" :class="{buttonActive: buttonsAreActive[1]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Starships</button>
+      <button :value="2" :class="{buttonActive: buttonsAreActive[2]}" @click="handleCategory" type="button" class="btn btn-danger btn-lg">Planets</button>
     </div>
     <form @submit.prevent="handleSearch">
       <div class="form-group">
@@ -34,7 +35,8 @@ export default {
         "https://i.ibb.co/w6fGGcK/planets-header.jpg"
       ],
       category: 0,
-      searchInput: ''
+      searchInput: '',
+      buttonsAreActive: [true, false, false]
     };
   },
   created: function() {
@@ -46,11 +48,15 @@ export default {
       this.data = this.imgArray[val];
       if(val==0) {
         this.category = 'people';
+        this.buttonsAreActive = [true, false, false];
       }else if(val==1) {
         this.category = 'starships';
+        this.buttonsAreActive = [false, true, false];
       }else {
         this.category = 'planets';
+        this.buttonsAreActive = [false, false, true];
       }
+      // Need to use a ref on a DOM element to target it in script
       this.$refs.search.focus();
       // Set table display to none here until something is searched
     },
@@ -62,9 +68,15 @@ export default {
 </script>
 
 <style scoped>
-button {
+button, h1 {
   font-family: "Arial Black";
   font-size: 40px;
+}
+h1 {
+  color: #fe385f;
+  -webkit-text-stroke: #fff 0.5px;
+}
+button {
   margin: 20px;
   box-shadow: 7px 10px 5px -5px rgba(0, 0, 0, 0.17);
 }
@@ -88,5 +100,9 @@ button {
 
 .hidden {
   display: none;
+}
+
+button.buttonActive {
+  border: white 1px solid;
 }
 </style>

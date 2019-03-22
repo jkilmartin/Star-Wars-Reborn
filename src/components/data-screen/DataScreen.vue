@@ -1,6 +1,6 @@
 <template>
   <div class="secondary-page-bg-img">
-    <MyNav :imgValue="imgValue" />
+    <MyNav class="my-nav" :imgValue="imgValue" />
     <div :class="{active: spinnerIsActive}" class="spinner-grow text-danger loading" style="width: 60px; height: 60px;" role="status">
       <span class="sr-only">Loading...</span>
     </div>
@@ -166,6 +166,10 @@ export default {
   background-position: center center;
   height: 1300px;
   width: 100vw;
+  }
+
+  .my-nav {
+    padding-top: 2%;
   }
 
   .spinner-grow {
