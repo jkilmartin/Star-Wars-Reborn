@@ -178,6 +178,10 @@ export default {
     };
   },
   methods: {
+    /** 
+      * switch to turn title into category. Used due to being unable to recieve to attributes from the evt.target. There will be a better way 
+      * @param {evt} event
+    */
     getData: function(evt) {
       let imgValue = 0;
       switch (evt.target.title) {
@@ -203,6 +207,7 @@ export default {
           imgValue = 0;
           break;
       }
+      //targets router and pushes param of urlTag and imgValue, to be used by DataScreen to display correct data and image
       this.$router.push({name: "datascreen", params: { urlTag: evt.target.id, imgValue: imgValue } });
     }
   }
