@@ -43,7 +43,6 @@ export default {
   methods: {
     handleCategory: function(evt) {
       let val = evt.target.value;
-      let category;
       this.data = this.imgArray[val];
       if(val==0) {
         this.category = 'people';
