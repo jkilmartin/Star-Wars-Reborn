@@ -43,8 +43,13 @@ export default {
     this.data = this.imgArray[this.imgValue];
   },
   methods: {
+    /** 
+      * handles category click and binds to local component data from v-bind: value 
+      * @param {event} evt
+    */
     handleCategory: function(evt) {
       let val = evt.target.value;
+      //binds local data to image source that gets sent to DynamicImage component for display
       this.data = this.imgArray[val];
       if(val==0) {
         this.category = 'people';
@@ -60,6 +65,7 @@ export default {
       this.$refs.search.focus();
       // Set table display to none here until something is searched
     },
+    //calls getData method from Datascreen parent 
     handleSearch: function() {
       this.$parent.getData(this.category, this.searchInput);
     }

@@ -18,6 +18,7 @@ export default {
   name: "Table",
   props: ["data"],
   methods: {
+    //uses RegEx to change keys from snake case to title case
     snakeToTitleCase: function(s) {
       let camel = s.replace(/(_\w)/g, function(m) {
         return m[1].toUpperCase();
