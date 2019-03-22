@@ -19,7 +19,7 @@ export default {
   props: ["data"],
   methods: {
     snakeToTitleCase: function(s) {
-      let camel = s.replace(/(\_\w)/g, function(m) {
+      let camel = s.replace(/(_\w)/g, function(m) {
         return m[1].toUpperCase();
       });
       let title = camel.replace( /([A-Z])/g, " $1" )
