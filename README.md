@@ -17,9 +17,6 @@ Please follow best practices and the conventions outlined in the [Contributing G
 If you are keen to use the project, find a bug, or want to contribute to code or documentation, let us know!
 Please have a read of the [Contributing Guidelines](https://github.com/jkilmartin/StarwarsVueStyleGuide/blob/dev/CONTRIBUTING.md) to get started.
 
-
---------------------------screenshots??-----------------------
-
 ## Copyright and License
 Copyright 2019 - Team #2  
 Code released under the MIT License.  
