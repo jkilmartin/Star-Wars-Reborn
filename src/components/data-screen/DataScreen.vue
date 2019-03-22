@@ -196,8 +196,7 @@ export default {
   background-image: url(../../assets/final/secondary-page.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  height: 1300px;
+  min-height: 100vh;
   width: 100vw;
   }
 
