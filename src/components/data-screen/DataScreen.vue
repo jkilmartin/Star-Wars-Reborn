@@ -198,6 +198,7 @@ export default {
   background-size: cover;
   min-height: 100vh;
   width: 100vw;
+  padding-bottom: 50px;
   }
 
   .my-nav {
