@@ -19,3 +19,7 @@ Please have a read of the [Contributing Guidelines](https://github.com/jkilmarti
 
 
 --------------------------screenshots??-----------------------
+
+## Copyright and License
+Copyright 2019 - Team #2  
+Code released under the MIT License.  
